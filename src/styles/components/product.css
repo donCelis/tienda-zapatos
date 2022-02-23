@@ -1,7 +1,7 @@
-.product{
+.product {
   padding: 4rem 0;
 }
-.product .row-grid{
+.product .row-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
@@ -9,47 +9,57 @@
   width: 70%;
   margin: 0 auto;
 }
-.thumbnails{
+.thumbnails {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   padding: 2rem 0;
 }
-.main-photo, .thumbnails li figure{
+.main-photo,
+.thumbnails li figure {
   border-radius: 0.8rem;
   overflow: hidden;
 }
-.product-info small{
+.thumbnails li figure {
+  border: 2px solid transparent;
+}
+.thumbnails li figure:hover {
+  border: 2px solid tomato;
+}
+.thumbnails li figure:hover img {
+  opacity: 0.4;
+}
+.product-info small {
   color: tomato;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 2px;
 }
-.product-info h2{
+.product-info h2 {
   font-size: 2.6em;
   margin: 1rem 0 2rem;
 }
-.add-item{
+.add-item {
   margin-top: 2rem;
   display: flex;
   align-items: stretch;
   gap: 1rem;
 }
-.add-item .counter{
+.add-item .counter {
   display: flex;
   align-items: center;
   background: hsl(223, 64%, 98%);
   gap: 1rem;
   border-radius: 5px;
 }
-.counter button{
+.counter button {
   padding: 1.2rem;
   border: 0;
 }
-.counter button img{
+.counter button img {
   vertical-align: middle;
 }
-.add-cart{
+.add-cart {
   background: hsl(26, 100%, 55%);
   border-radius: 5px;
   color: white;
@@ -58,6 +68,6 @@
   align-items: center;
   gap: 1rem;
 }
-.add-cart svg{
+.add-cart svg {
   fill: white;
 }

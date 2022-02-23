@@ -1,14 +1,18 @@
-import mainPhoto from '../assets/images/image-product-1.jpg'
-/* thumbnails */
-import thumbnail1 from '../assets/images/image-product-1-thumbnail.jpg'
-import thumbnail2 from '../assets/images/image-product-2-thumbnail.jpg'
-import thumbnail3 from '../assets/images/image-product-3-thumbnail.jpg'
-import thumbnail4 from '../assets/images/image-product-4-thumbnail.jpg'
-
-import '../styles/components/product.css'
+import { useState } from 'react'
+import allImages from '../data'
 import ProductCounter from './ProductCounter'
+import '../styles/components/product.css'
+
+const Thumbnail = ({ urlImg }) => {
+  return (
+    <figure>
+      <img className='img-fluid' src={urlImg} alt='sneaker thumbnail' />
+    </figure>
+  )
+}
 
 const Product = () => {
+  const [mainPhoto, setMainPhoto] = useState(allImages[0].img)
   return (
     <section className='product'>
       <div className='container row-grid'>
@@ -17,26 +21,11 @@ const Product = () => {
             <img className='img-fluid' src={mainPhoto} alt='sneaker' />
           </figure>
           <ul className='thumbnails'>
-            <li>
-              <figure>
-                <img className='img-fluid' src={thumbnail1} alt='sneaker thumbnail' />
-              </figure>
-            </li>
-            <li>
-              <figure>
-                <img className='img-fluid' src={thumbnail2} alt='sneaker thumbnail' />
-              </figure>
-            </li>
-            <li>
-              <figure>
-                <img className='img-fluid' src={thumbnail3} alt='sneaker thumbnail' />
-              </figure>
-            </li>
-            <li>
-              <figure>
-                <img className='img-fluid' src={thumbnail4} alt='sneaker thumbnail' />
-              </figure>
-            </li>
+            {allImages.map(({ thumb, img }, index) =>
+              <li key={index} onClick={() => setMainPhoto(img)}>
+                <Thumbnail urlImg={thumb} />
+              </li>
+            )}
           </ul>
         </aside>
         <article className='product-info'>
