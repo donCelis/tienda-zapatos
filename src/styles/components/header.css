@@ -1,0 +1,38 @@
+header > .container {
+  border-bottom: 2px solid hsla(0, 0%, 0%, 0.06);
+}
+.logo-store {
+  display: inline-flex;
+  cursor: pointer;
+}
+menu {
+  gap: 3rem;
+}
+.main-menu {
+  gap: 2rem;
+}
+.main-menu li a {
+  padding: 2.5rem 0;
+  color: gray;
+  border-bottom: 2px solid transparent;
+  display: block;
+  transition: border-bottom ease 0.2s;
+}
+.main-menu li a:hover {
+  border-bottom: 2px solid tomato;
+}
+.second-menu {
+  gap: 2rem;
+}
+.btn-profile {
+  width: 3rem;
+  height: 3rem;
+}
+.btn-profile img {
+  border-radius: 100%;
+  border: 2px solid transparent;
+  transition: border ease 0.2s;
+}
+.btn-profile img:hover {
+  border: 2px solid tomato;
+}
