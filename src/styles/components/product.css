@@ -23,6 +23,12 @@
 .thumbnails li figure {
   border: 2px solid transparent;
 }
+.thumbnails li figure.active{
+  border: 2px solid tomato;
+}
+.thumbnails li figure.active img{
+  opacity: 0.4;
+}
 .thumbnails li figure:hover {
   border: 2px solid tomato;
 }
