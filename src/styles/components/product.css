@@ -73,7 +73,31 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  font-weight: 600;
 }
 .add-cart svg {
   fill: white;
+}
+.price{
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.8rem 0 0.6rem;
+}
+.price .final-value{
+  font-size: 1.6em;
+  font-weight: 700;
+}
+.price .discount{
+  background: rgba(255, 99, 71, 0.3);
+  color: tomato;
+  padding: 0.2rem 0.3rem;
+  border-radius: 4px;
+}
+.product-info .initial-value{
+  color: gray;
+  text-decoration: line-through;
+}
+.info-text{
+  color: gray;
 }

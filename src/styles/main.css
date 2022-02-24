@@ -38,3 +38,6 @@ button{
   vertical-align: middle;
   height: auto;
 }
+.SRLPrevButton, .SRLNextButton{
+  border-radius: 100% !important;
+}

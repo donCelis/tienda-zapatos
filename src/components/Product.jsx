@@ -16,12 +16,38 @@ const Product = () => {
   const [mainPhoto, setMainPhoto] = useState(allImages[0].img)
   const deletePhoto = allImages.filter(({ img }) => img !== mainPhoto)
 
+  const discount = 50
+  const initialValue = 250
+  const finalValue = initialValue / 100 * discount
+
+  const options = {
+    settings: {
+      disableWheelControls: true,
+      disablePanzoom: true,
+      slideAnimationType: 'slide'
+    },
+    buttons: {
+      showAutoplayButton: false,
+      showDownloadButton: false,
+      showFullscreenButton: false,
+      showThumbnailsButton: false,
+      backgroundColor: 'white',
+      iconColor: 'black'
+    },
+    caption: {
+      showCaption: false
+    },
+    thumbnails: {
+      thumbnailsGap: '1rem'
+    }
+  }
+
   return (
     <section className='product'>
       <div className='container row-grid'>
         <aside className='product-photos'>
           <SimpleReactLightbox>
-            <SRLWrapper>
+            <SRLWrapper options={options}>
               <figure className='main-photo'>
                 <img className='img-fluid' src={mainPhoto} alt='sneaker' />
               </figure>
@@ -41,20 +67,20 @@ const Product = () => {
         <article className='product-info'>
           <small>Sneaker Company</small>
           <h2>Fall Limited Edition Sneakers</h2>
-          <p>
+          <p className='info-text'>
             These low-profile sneakers are your perfect casual wear companion. Featuring a
             durable rubber outer sole, they’ll withstand everything the weather can offer.
           </p>
           <p className='price'>
-            <span>
-              $125.00
+            <span className='final-value'>
+              ${finalValue}.00
             </span>
-            <span>
-              50%
+            <span className='discount'>
+              {discount}%
             </span>
           </p>
-          <p>
-            $250.00
+          <p className='initial-value'>
+            ${initialValue}.00
           </p>
           <ProductCounter />
         </article>
