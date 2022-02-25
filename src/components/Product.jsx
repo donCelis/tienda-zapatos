@@ -3,6 +3,7 @@ import allImages from '../data'
 import ProductCounter from './ProductCounter'
 import '../styles/components/product.css'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
+import useDiscount from '../hooks/useDiscount'
 
 const Thumbnail = ({ urlImg, active }) => {
   return (
@@ -13,12 +14,16 @@ const Thumbnail = ({ urlImg, active }) => {
 }
 
 const Product = () => {
+  /* set main photo and filter photo */
   const [mainPhoto, setMainPhoto] = useState(allImages[0].img)
   const deletePhoto = allImages.filter(({ img }) => img !== mainPhoto)
-
-  const discount = 50
-  const initialValue = 250
-  const finalValue = initialValue / 100 * discount
+  /* useDiscount */
+  const {
+    valueProduct,
+    discount,
+    finalValue,
+    setMoneda
+  } = useDiscount(250, 50)
 
   const options = {
     settings: {
@@ -32,7 +37,7 @@ const Product = () => {
       showFullscreenButton: false,
       showThumbnailsButton: false,
       backgroundColor: 'white',
-      iconColor: 'black'
+      iconColor: 'tomato'
     },
     caption: {
       showCaption: false
@@ -52,36 +57,42 @@ const Product = () => {
                 <img className='img-fluid' src={mainPhoto} alt='sneaker' />
               </figure>
               <div style={{ display: 'none' }}>
-                {deletePhoto.map(({ img }, index) => <img key={index} src={img} alt='foto' />)}
+                {deletePhoto.map(({ img }, index) => (
+                  <img key={index} src={img} alt='foto' />
+                ))}
               </div>
             </SRLWrapper>
           </SimpleReactLightbox>
           <ul className='thumbnails'>
-            {allImages.map(({ thumb, img }, index) =>
+            {allImages.map(({ thumb, img }, index) => (
               <li key={index} onClick={() => setMainPhoto(img)}>
-                <Thumbnail active={(mainPhoto === img) ? 'active' : ''} urlImg={thumb} />
+                <Thumbnail
+                  active={mainPhoto === img ? 'active' : ''}
+                  urlImg={thumb}
+                />
               </li>
-            )}
+            ))}
           </ul>
         </aside>
         <article className='product-info'>
           <small>Sneaker Company</small>
           <h2>Fall Limited Edition Sneakers</h2>
+          <form>
+            <select onChange={(event) => setMoneda(event.target.value)}>
+              <option value='en-US'>Dolar</option>
+              <option value='de-DE'>Euro</option>
+            </select>
+          </form>
           <p className='info-text'>
-            These low-profile sneakers are your perfect casual wear companion. Featuring a
-            durable rubber outer sole, they’ll withstand everything the weather can offer.
+            These low-profile sneakers are your perfect casual wear companion.
+            Featuring a durable rubber outer sole, they’ll withstand everything
+            the weather can offer.
           </p>
           <p className='price'>
-            <span className='final-value'>
-              ${finalValue}.00
-            </span>
-            <span className='discount'>
-              {discount}%
-            </span>
+            <span className='final-value'>{finalValue}</span>
+            <span className='discount'>{discount}%</span>
           </p>
-          <p className='initial-value'>
-            ${initialValue}.00
-          </p>
+          <p className='initial-value'>{valueProduct}</p>
           <ProductCounter />
         </article>
       </div>
