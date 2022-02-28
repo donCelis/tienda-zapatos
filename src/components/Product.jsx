@@ -16,7 +16,7 @@ const Thumbnail = ({ urlImg, active }) => {
 const Product = () => {
   /* set main photo and filter photo */
   const [mainPhoto, setMainPhoto] = useState(allImages[0].img)
-  const deletePhoto = allImages.filter(({ img }) => img !== mainPhoto)
+  const filterPhoto = allImages.filter(({ img }) => img !== mainPhoto)
   /* useDiscount */
   const {
     valueProduct,
@@ -25,7 +25,7 @@ const Product = () => {
     setMoneda
   } = useDiscount(250, 50)
 
-  const prices = [
+  /* const prices = [
     { price: 250 },
     { price: 100 },
     { price: 100 },
@@ -34,8 +34,9 @@ const Product = () => {
 
   const mapPrices = prices.map(({ price }) => useDiscount(price, 50))
 
-  console.log(mapPrices)
+  console.log(mapPrices) */
 
+  /* Options lightbox */
   const options = {
     settings: {
       disableWheelControls: true,
@@ -68,7 +69,7 @@ const Product = () => {
                 <img className='img-fluid' src={mainPhoto} alt='sneaker' />
               </figure>
               <div style={{ display: 'none' }}>
-                {deletePhoto.map(({ img }, index) => (
+                {filterPhoto.map(({ img }, index) => (
                   <img key={index} src={img} alt='foto' />
                 ))}
               </div>
