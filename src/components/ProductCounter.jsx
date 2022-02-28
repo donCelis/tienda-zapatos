@@ -1,11 +1,12 @@
-import { useState } from 'react'
+import { useContext, useEffect, useRef } from 'react'
+import { ProductContext } from '../context'
 import '../styles/components/product.css'
 import minus from '../assets/images/icon-minus.svg'
 import plus from '../assets/images/icon-plus.svg'
 import IconCart from './IconCart'
 
 const ProductCounter = () => {
-  const [number, setNumber] = useState(0)
+  const { number, setNumber } = useContext(ProductContext)
 
   const handleChangeNumber = (operation) => {
     switch (operation) {
@@ -21,6 +22,17 @@ const ProductCounter = () => {
     }
   }
 
+  const btnCart = useRef(null)
+
+  useEffect(() => {
+    if (number > 0) btnCart.current.classList.remove('disable')
+    if (number === 0) btnCart.current.classList.add('disable')
+  }, [number])
+
+  const handleAddProduct = () => {
+    if (number > 0) console.log('ok')
+  }
+
   return (
     <section className='add-item'>
       <div className='counter'>
@@ -32,7 +44,7 @@ const ProductCounter = () => {
           <img src={plus} alt='plus' />
         </button>
       </div>
-      <button className='add-cart'>
+      <button ref={btnCart} className='add-cart' onClick={() => handleAddProduct()}>
         <figure>
           <IconCart />
         </figure>

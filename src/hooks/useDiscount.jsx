@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const useDiscount = (initialValue, discount) => {
+const useDiscount = (initialValue = 0, discount = 0) => {
   const [moneda, setMoneda] = useState('en-US')
   const initialfinalValue = (initialValue / 100) * discount
 

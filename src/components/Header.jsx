@@ -3,10 +3,13 @@ import iconCart from '../assets/images/icon-cart.svg'
 import avatar from '../assets/images/image-avatar.png'
 
 import '../styles/components/header.css'
-import { Suspense } from 'react'
+import { Suspense, useContext } from 'react'
 import Loading from './Loading'
+import { ProductContext } from '../context'
 
 const Header = () => {
+  const { number } = useContext(ProductContext)
+
   const navLinks = ['Collections', 'Men', 'Women', 'About', 'Contact']
   return (
     <header>
@@ -24,6 +27,7 @@ const Header = () => {
         <nav className='row second-menu'>
           <Suspense fallback={<Loading />}>
             <button className='btn btn-cart'>
+              <p>{number}</p>
               <img src={iconCart} alt='Carrito de compras' />
             </button>
           </Suspense>

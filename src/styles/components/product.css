@@ -102,3 +102,6 @@
   color: gray;
   margin-top: 2rem;
 }
+.disable{
+  opacity: 0.5;
+}

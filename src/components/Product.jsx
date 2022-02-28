@@ -20,10 +20,21 @@ const Product = () => {
   /* useDiscount */
   const {
     valueProduct,
-    discount,
     finalValue,
+    discount,
     setMoneda
   } = useDiscount(250, 50)
+
+  const prices = [
+    { price: 250 },
+    { price: 100 },
+    { price: 100 },
+    { price: 250 }
+  ]
+
+  const mapPrices = prices.map(({ price }) => useDiscount(price, 50))
+
+  console.log(mapPrices)
 
   const options = {
     settings: {
