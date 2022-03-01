@@ -3,14 +3,13 @@ import iconCart from '../assets/images/icon-cart.svg'
 import avatar from '../assets/images/image-avatar.png'
 
 import '../styles/components/header.css'
-import { Suspense, useContext/* , useRef */ } from 'react'
+import { Suspense, useContext /* , useRef */ } from 'react'
 import Loading from './Loading'
 import { ProductContext } from '../context'
 import StoreMenu from './StoreMenu'
 
 const Header = () => {
-  const { showAdd, setShowAdd } = useContext(ProductContext)
-  // const storeMenu = useRef()
+  const { showAdd, handleStoreMenu } = useContext(ProductContext)
 
   const navLinks = ['Collections', 'Men', 'Women', 'About', 'Contact']
   return (
@@ -30,11 +29,7 @@ const Header = () => {
         </menu>
         <nav className='row second-menu'>
           <Suspense fallback={<Loading />}>
-            <button
-              className='btn btn-cart'
-              /* onClick={() => storeMenu.current.classList.toggle('show')} */
-              onClick={() => setShowAdd(!showAdd)}
-            >
+            <button className='btn btn-cart' onClick={() => handleStoreMenu()}>
               <img src={iconCart} alt='Carrito de compras' />
             </button>
           </Suspense>
