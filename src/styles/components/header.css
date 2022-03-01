@@ -23,6 +23,7 @@ menu {
 }
 .second-menu {
   gap: 2rem;
+  position: relative;
 }
 .btn-profile {
   width: 3rem;
@@ -36,3 +37,33 @@ menu {
 .btn-profile img:hover {
   border: 2px solid tomato;
 }
+/* store-menu */
+.store-menu {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 20rem;
+  transform: translate(-50%, 3.5rem);
+  display: none;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 5px 10px 5px rgba(128, 128, 128, 0.2);
+}
+.store-menu.show {
+  display: block;
+}
+.store-menu > header {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+.store-menu > header,
+.store-menu .store-body {
+  padding: 1.4rem;
+}
+.store-body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 10rem;
+}
+/* store-menu */

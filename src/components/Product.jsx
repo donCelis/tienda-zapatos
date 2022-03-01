@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import allImages from '../data'
+import { allImages, product } from '../data'
 import ProductCounter from './ProductCounter'
 import '../styles/components/product.css'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
@@ -17,13 +17,14 @@ const Product = () => {
   /* set main photo and filter photo */
   const [mainPhoto, setMainPhoto] = useState(allImages[0].img)
   const filterPhoto = allImages.filter(({ img }) => img !== mainPhoto)
+  const { company, name, description, price, priceDiscount } = product[0]
   /* useDiscount */
   const {
     valueProduct,
     finalValue,
     discount,
     setMoneda
-  } = useDiscount(250, 50)
+  } = useDiscount(price, priceDiscount)
 
   /* const prices = [
     { price: 250 },
@@ -87,8 +88,8 @@ const Product = () => {
           </ul>
         </aside>
         <article className='product-info'>
-          <small>Sneaker Company</small>
-          <h2>Fall Limited Edition Sneakers</h2>
+          <small>{company}</small>
+          <h2>{name}</h2>
           <form>
             <select onChange={(event) => setMoneda(event.target.value)}>
               <option value='en-US'>Dolar</option>
@@ -96,9 +97,7 @@ const Product = () => {
             </select>
           </form>
           <p className='info-text'>
-            These low-profile sneakers are your perfect casual wear companion.
-            Featuring a durable rubber outer sole, they’ll withstand everything
-            the weather can offer.
+            {description}
           </p>
           <p className='price'>
             <span className='final-value'>{finalValue}</span>

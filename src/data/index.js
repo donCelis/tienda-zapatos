@@ -27,4 +27,18 @@ const allImages = [
   }
 ]
 
-export default allImages
+const product = [
+  {
+    id: 1,
+    company: 'SNEAKER COMPANY',
+    name: 'Fall Limited Edition Sneakers',
+    description: `These low-profile sneakers are your perfect casual wear companion.
+    Featuring a durable rubber outer sole, they’ll withstand everything
+    the weather can offer.`,
+    price: 250,
+    priceDiscount: 50,
+    images: allImages
+  }
+]
+
+export { allImages, product }
