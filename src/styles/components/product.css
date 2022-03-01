@@ -75,6 +75,10 @@
   gap: 1rem;
   font-weight: 600;
 }
+.add-cart.check{
+  display: block;
+  width: 100%;
+}
 .add-cart svg {
   fill: white;
 }

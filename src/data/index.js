@@ -29,7 +29,6 @@ const allImages = [
 
 const product = [
   {
-    id: 1,
     company: 'SNEAKER COMPANY',
     name: 'Fall Limited Edition Sneakers',
     description: `These low-profile sneakers are your perfect casual wear companion.

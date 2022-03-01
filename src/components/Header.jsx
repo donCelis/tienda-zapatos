@@ -3,7 +3,7 @@ import iconCart from '../assets/images/icon-cart.svg'
 import avatar from '../assets/images/image-avatar.png'
 
 import '../styles/components/header.css'
-import { Suspense, useContext /* , useRef */ } from 'react'
+import { Suspense, useContext } from 'react'
 import Loading from './Loading'
 import { ProductContext } from '../context'
 import StoreMenu from './StoreMenu'

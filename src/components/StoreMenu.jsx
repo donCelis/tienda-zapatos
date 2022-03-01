@@ -1,11 +1,12 @@
 import { useContext } from 'react'
 import { ProductContext } from '../context'
 
-const ProductStore = () => {
+const ProductStore = ({ name, price, accumulator }) => {
   return (
     <article>
-      <h4>producto</h4>
-      <p>valor del producto</p>
+      <h4>{name}</h4>
+      <p>{price}</p>
+      <p>cantidad: {accumulator}</p>
     </article>
   )
 }
@@ -21,8 +22,10 @@ const StoreMenu = () => {
         {store.length > 0
           ? (
             <>
-              <ProductStore />
-              <button className='add-cart'>Checkout</button>
+              {store.map((item) => (
+                <ProductStore key={item.id} {...item} />
+              ))}
+              <button className='add-cart check'>Checkout</button>
             </>
             )
           : (

@@ -1,4 +1,5 @@
 import { createContext, useRef, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 export const ProductContext = createContext(null)
 
@@ -8,7 +9,7 @@ export const ContextProvider = ({ children }) => {
   const storeMenu = useRef()
 
   const addProduct = (product) => {
-    const id = Math.floor(Math.random() * 10000) + 1
+    const id = uuidv4()
     const addIdProduct = { id, ...product }
     setStore([...store, addIdProduct])
   }
@@ -28,6 +29,8 @@ export const ContextProvider = ({ children }) => {
     /* store menu ref */
     storeMenu
   }
+
+  console.log(store)
 
   return (
     <ProductContext.Provider value={initialValue}>
