@@ -59,11 +59,54 @@ menu {
 .store-menu .store-body {
   padding: 1.4rem;
 }
-.store-body{
+.store-body {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 1rem;
+}
+.store-body.empty {
   height: 10rem;
 }
+.btn-cart {
+  position: relative;
+}
+.counter-store {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  background: tomato;
+  color: white;
+  width: 20px;
+  border-radius: 15px;
+}
 /* store-menu */
+.product-cart {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 4fr;
+  gap: 0.5rem;
+  font-size: 0.9em;
+  position: relative;
+}
+.product-cart h4 {
+  font-weight: 300;
+}
+.product-cart > aside img {
+  border-radius: 6px;
+}
+.product-desc {
+  display: grid;
+  gap: 0.5rem;
+}
+.product-cart .product-values span {
+  font-weight: 600;
+}
+.delete {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}

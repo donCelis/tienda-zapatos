@@ -13,6 +13,10 @@ export const ContextProvider = ({ children }) => {
     const addIdProduct = { id, ...product }
     setStore([...store, addIdProduct])
   }
+  const deleteProduct = (id) => {
+    setStore(store.filter((item) => item.id !== id
+    ))
+  }
 
   const handleStoreMenu = () => {
     setShowAdd(!showAdd)
@@ -23,6 +27,7 @@ export const ContextProvider = ({ children }) => {
     /* store */
     store,
     addProduct,
+    deleteProduct,
     /* hide store menu */
     showAdd,
     handleStoreMenu,

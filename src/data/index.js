@@ -35,7 +35,7 @@ const product = [
     Featuring a durable rubber outer sole, they’ll withstand everything
     the weather can offer.`,
     price: 250,
-    priceDiscount: 50,
+    percent: 50,
     images: allImages
   }
 ]

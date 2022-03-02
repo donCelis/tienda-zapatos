@@ -1,7 +1,0 @@
-1. Sacar el componente Card en un archivo
-2. Importar el componente Card, en el componente Blog
-3. Crear una carpeta de estilos, crear el archivo de css para
-	el componente Card
-4. Importar los estilos en el componente Card
-5. Estilos generales e importarlos en main.jsx
-6. Lo de styled-component lo pueden borrar

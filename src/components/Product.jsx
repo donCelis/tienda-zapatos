@@ -17,14 +17,13 @@ const Product = () => {
   /* set main photo and filter photo */
   const [mainPhoto, setMainPhoto] = useState(allImages[0].img)
   const filterPhoto = allImages.filter(({ img }) => img !== mainPhoto)
-  const { company, name, description, price, priceDiscount } = product[0]
+  const { company, name, description, price, percent } = product[0]
   /* useDiscount */
   const {
     valueProduct,
     finalValue,
-    discount,
-    setMoneda
-  } = useDiscount(price, priceDiscount)
+    discount
+  } = useDiscount(price, percent)
 
   /* const prices = [
     { price: 250 },
@@ -90,12 +89,6 @@ const Product = () => {
         <article className='product-info'>
           <small>{company}</small>
           <h2>{name}</h2>
-          <form>
-            <select onChange={(event) => setMoneda(event.target.value)}>
-              <option value='en-US'>Dolar</option>
-              <option value='de-DE'>Euro</option>
-            </select>
-          </form>
           <p className='info-text'>
             {description}
           </p>

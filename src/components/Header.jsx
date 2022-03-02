@@ -9,7 +9,7 @@ import { ProductContext } from '../context'
 import StoreMenu from './StoreMenu'
 
 const Header = () => {
-  const { showAdd, handleStoreMenu } = useContext(ProductContext)
+  const { showAdd, handleStoreMenu, store } = useContext(ProductContext)
 
   const navLinks = ['Collections', 'Men', 'Women', 'About', 'Contact']
   return (
@@ -30,6 +30,7 @@ const Header = () => {
         <nav className='row second-menu'>
           <Suspense fallback={<Loading />}>
             <button className='btn btn-cart' onClick={() => handleStoreMenu()}>
+              {store.length > 0 && <p className='counter-store'>{store.length}</p>}
               <img src={iconCart} alt='Carrito de compras' />
             </button>
           </Suspense>
