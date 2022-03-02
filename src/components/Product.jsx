@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import allImages, { product } from '../data'
+import { product } from '../data'
 import ProductCounter from './ProductCounter'
 import '../styles/components/product.css'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
@@ -14,16 +14,16 @@ const Thumbnail = ({ urlImg, active }) => {
 }
 
 const Product = () => {
+  const { images, price, percent, company, name, description } = product
   /* set main photo and filter photo */
-  const [mainPhoto, setMainPhoto] = useState(allImages[0].img)
-  const filterPhoto = allImages.filter(({ img }) => img !== mainPhoto)
+  const [mainPhoto, setMainPhoto] = useState(images[0].img)
+  const filterPhoto = images.filter(({ img }) => img !== mainPhoto)
   /* useDiscount */
   const {
     valueProduct,
     finalValue,
-    discount,
-    setMoneda
-  } = useDiscount(product.price, product.percent)
+    discount
+  } = useDiscount(price, percent)
 
   /* Options lightbox */
   const options = {
@@ -65,7 +65,7 @@ const Product = () => {
             </SRLWrapper>
           </SimpleReactLightbox>
           <ul className='thumbnails'>
-            {allImages.map(({ thumb, img }, index) => (
+            {images.map(({ thumb, img }, index) => (
               <li key={index} onClick={() => setMainPhoto(img)}>
                 <Thumbnail
                   active={mainPhoto === img ? 'active' : ''}
@@ -76,16 +76,10 @@ const Product = () => {
           </ul>
         </aside>
         <article className='product-info'>
-          <small>{product.company}</small>
-          <h2>{product.name}</h2>
-          <form>
-            <select onChange={(event) => setMoneda(event.target.value)}>
-              <option value='en-US'>Dolar</option>
-              <option value='de-DE'>Euro</option>
-            </select>
-          </form>
+          <small>{company}</small>
+          <h2>{name}</h2>
           <p className='info-text'>
-            {product.description}
+            {description}
           </p>
           <p className='price'>
             <span className='final-value'>{finalValue}</span>

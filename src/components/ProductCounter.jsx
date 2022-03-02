@@ -1,12 +1,11 @@
-import { useContext, useEffect, useState } from 'react'
-import { ProductContext } from '../context'
+import { useEffect, useState } from 'react'
 import '../styles/components/product.css'
 import minus from '../assets/images/icon-minus.svg'
 import plus from '../assets/images/icon-plus.svg'
 import IconCart from './IconCart'
 
 const ProductCounter = () => {
-  const { number, setNumber } = useContext(ProductContext)
+  const [number, setNumber] = useState(0)
   const [activeBtn, setActiveBtn] = useState(false)
 
   useEffect(() => {
