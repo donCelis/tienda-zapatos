@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
-import { product } from '../data'
 import ProductCounter from './ProductCounter'
 import '../styles/components/product.css'
 import useDiscount from '../hooks/useDiscount'
+import { useProductCtx } from '../context'
 
 const Thumbnail = ({ urlImg, active }) => {
   return (
@@ -14,7 +14,8 @@ const Thumbnail = ({ urlImg, active }) => {
 }
 
 const Product = () => {
-  const { images, company, name, price, percent, description } = product
+  const { productCtx } = useProductCtx()
+  const { images, company, name, price, percent, description } = productCtx
   /* set main photo and filter photo */
   const [mainPhoto, setMainPhoto] = useState(images[0].img)
   const filterPhoto = images.filter(({ img }) => img !== mainPhoto)

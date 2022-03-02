@@ -4,18 +4,18 @@ import Loading from './components/Loading'
 import Header from './components/Header'
 
 import './styles/main.css'
-import { ContextProvider } from './context'
+import { AppProvider } from './context'
 
 const Product = lazy(() => import('./components/Product'))
 
 ReactDOM.render(
   <React.StrictMode>
-    <ContextProvider>
+    <AppProvider>
       <Header />
       <Suspense fallback={<Loading />}>
         <Product />
       </Suspense>
-    </ContextProvider>
+    </AppProvider>
   </React.StrictMode>,
   document.getElementById('app')
 )

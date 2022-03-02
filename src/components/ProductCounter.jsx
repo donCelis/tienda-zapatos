@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 /* context */
-import { ProductContext } from '../context'
+import { useProductCtx } from '../context'
 /* icons */
 import minus from '../assets/images/icon-minus.svg'
 import plus from '../assets/images/icon-plus.svg'
@@ -9,7 +9,7 @@ import IconCart from './IconCart'
 import '../styles/components/product.css'
 
 const ProductCounter = () => {
-  const { addProduct, productCtx } = useContext(ProductContext)
+  const { addProduct, productCtx } = useProductCtx()
   const [accumulator, setAccumulator] = useState(0)
   const [activeBtn, setActiveBtn] = useState(false)
 

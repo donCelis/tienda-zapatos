@@ -40,6 +40,7 @@ menu {
 /* store-menu */
 .store-menu {
   position: absolute;
+  z-index: 100;
   inset: 0 auto auto 0;
   width: 20rem;
   transform: translate(-50%, 3.5rem);

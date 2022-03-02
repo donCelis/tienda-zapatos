@@ -1,24 +1,28 @@
-import { createContext, useRef, useState } from 'react'
+import { createContext, useRef, useState, useContext } from 'react'
+
+import { v4 as uuidv4 } from 'uuid'
 
 import { product } from '../data'
 
-export const ProductContext = createContext(null)
+const ProductContext = createContext(null)
 
-export const ContextProvider = ({ children }) => {
-  const [productCtx, setProductCtx] = useState(product)
+export const AppProvider = ({ children }) => {
+  const [productCtx] = useState(product)
   const [store, setStore] = useState([])
-  const [showAdd, setShowAdd] = useState(false)
+  const [showCart, setShowCart] = useState(false)
   const storeMenu = useRef()
 
   const addProduct = (product) => {
-    setStore([...store, product])
+    const id = uuidv4()
+    const tempProduct = { id, ...product }
+    setStore([...store, tempProduct])
   }
   const deleteProduct = (id) => {
     setStore(store.filter((item) => item.id !== id))
   }
 
   const handleStoreMenu = () => {
-    setShowAdd(!showAdd)
+    setShowCart(!showCart)
     // storeMenu.current.classList.toggle('show')
   }
 
@@ -29,7 +33,7 @@ export const ContextProvider = ({ children }) => {
     addProduct,
     deleteProduct,
     /* hide store menu */
-    showAdd,
+    showCart,
     handleStoreMenu,
     /* store menu ref */
     storeMenu
@@ -40,4 +44,8 @@ export const ContextProvider = ({ children }) => {
       {children}
     </ProductContext.Provider>
   )
+}
+
+export const useProductCtx = () => {
+  return useContext(ProductContext)
 }
