@@ -27,17 +27,16 @@ const allImages = [
   }
 ]
 
-const product = [
-  {
-    company: 'SNEAKER COMPANY',
-    name: 'Fall Limited Edition Sneakers',
-    description: `These low-profile sneakers are your perfect casual wear companion.
+const product = {
+  company: 'SNEAKER COMPANY',
+  name: 'Fall Limited Edition Sneakers',
+  description: `These low-profile sneakers are your perfect casual wear companion.
     Featuring a durable rubber outer sole, they’ll withstand everything
     the weather can offer.`,
-    price: 250,
-    percent: 50,
-    images: allImages
-  }
-]
+  price: 250,
+  percent: 50,
+  images: allImages,
+  units: 10
+}
 
 export { allImages, product }

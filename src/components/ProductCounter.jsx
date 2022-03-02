@@ -21,7 +21,7 @@ const ProductCounter = () => {
 
   const handleAddProduct = () => {
     if (!activeBtn) {
-      addProduct({ accumulator, ...product[0] })
+      addProduct({ accumulator, ...product })
       setAccumulator(0)
     }
   }

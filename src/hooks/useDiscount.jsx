@@ -4,8 +4,8 @@ const useDiscount = (initialValue = 0, discount = 0) => {
   const options = { style: 'currency', currency: 'USD' }
 
   const currency = new Intl.NumberFormat('en-US', options)
-  const convertCurrency = (value) => {
-    return currency.format(value)
+  const convertCurrency = (valuePrice) => {
+    return currency.format(valuePrice)
   }
   const valueProduct = convertCurrency(initialValue)
   const finalValue = convertCurrency(initialfinalValue)

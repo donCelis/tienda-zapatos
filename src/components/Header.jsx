@@ -1,11 +1,12 @@
+import { Suspense, useContext } from 'react'
+import { ProductContext } from '../context'
+import '../styles/components/header.css'
+/* images */
 import logoStore from '../assets/images/logo.svg'
 import iconCart from '../assets/images/icon-cart.svg'
 import avatar from '../assets/images/image-avatar.png'
-
-import '../styles/components/header.css'
-import { Suspense, useContext } from 'react'
+/* components */
 import Loading from './Loading'
-import { ProductContext } from '../context'
 import StoreMenu from './StoreMenu'
 
 const Header = () => {

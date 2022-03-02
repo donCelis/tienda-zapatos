@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { allImages, product } from '../data'
+import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
+import { product } from '../data'
 import ProductCounter from './ProductCounter'
 import '../styles/components/product.css'
-import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
 import useDiscount from '../hooks/useDiscount'
 
 const Thumbnail = ({ urlImg, active }) => {
@@ -14,27 +14,16 @@ const Thumbnail = ({ urlImg, active }) => {
 }
 
 const Product = () => {
+  const { images, company, name, price, percent, description } = product
   /* set main photo and filter photo */
-  const [mainPhoto, setMainPhoto] = useState(allImages[0].img)
-  const filterPhoto = allImages.filter(({ img }) => img !== mainPhoto)
-  const { company, name, description, price, percent } = product[0]
+  const [mainPhoto, setMainPhoto] = useState(images[0].img)
+  const filterPhoto = images.filter(({ img }) => img !== mainPhoto)
   /* useDiscount */
   const {
     valueProduct,
     finalValue,
     discount
   } = useDiscount(price, percent)
-
-  /* const prices = [
-    { price: 250 },
-    { price: 100 },
-    { price: 100 },
-    { price: 250 }
-  ]
-
-  const mapPrices = prices.map(({ price }) => useDiscount(price, 50))
-
-  console.log(mapPrices) */
 
   /* Options lightbox */
   const options = {
@@ -76,7 +65,7 @@ const Product = () => {
             </SRLWrapper>
           </SimpleReactLightbox>
           <ul className='thumbnails'>
-            {allImages.map(({ thumb, img }, index) => (
+            {images.map(({ thumb, img }, index) => (
               <li key={index} onClick={() => setMainPhoto(img)}>
                 <Thumbnail
                   active={mainPhoto === img ? 'active' : ''}

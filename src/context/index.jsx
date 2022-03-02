@@ -35,8 +35,6 @@ export const ContextProvider = ({ children }) => {
     storeMenu
   }
 
-  console.log(store)
-
   return (
     <ProductContext.Provider value={initialValue}>
       {children}
