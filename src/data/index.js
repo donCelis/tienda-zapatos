@@ -8,6 +8,8 @@ import thumbnail2 from '../assets/images/image-product-2-thumbnail.jpg'
 import thumbnail3 from '../assets/images/image-product-3-thumbnail.jpg'
 import thumbnail4 from '../assets/images/image-product-4-thumbnail.jpg'
 
+import { v4 as uuidv4 } from 'uuid'
+
 const allImages = [
   {
     img: imageProduct1,
@@ -28,6 +30,7 @@ const allImages = [
 ]
 
 const product = {
+  id: uuidv4(),
   company: 'SNEAKER COMPANY',
   name: 'Fall Limited Edition Sneakers',
   description: `These low-profile sneakers are your perfect casual wear companion.
@@ -36,7 +39,7 @@ const product = {
   price: 250,
   percent: 50,
   images: allImages,
-  units: 10
+  units: 3
 }
 
 export { allImages, product }

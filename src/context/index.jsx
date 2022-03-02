@@ -1,21 +1,20 @@
 import { createContext, useRef, useState } from 'react'
-import { v4 as uuidv4 } from 'uuid'
+
+import { product } from '../data'
 
 export const ProductContext = createContext(null)
 
 export const ContextProvider = ({ children }) => {
+  const [productCtx, setProductCtx] = useState(product)
   const [store, setStore] = useState([])
   const [showAdd, setShowAdd] = useState(false)
   const storeMenu = useRef()
 
   const addProduct = (product) => {
-    const id = uuidv4()
-    const addIdProduct = { id, ...product }
-    setStore([...store, addIdProduct])
+    setStore([...store, product])
   }
   const deleteProduct = (id) => {
-    setStore(store.filter((item) => item.id !== id
-    ))
+    setStore(store.filter((item) => item.id !== id))
   }
 
   const handleStoreMenu = () => {
@@ -25,6 +24,7 @@ export const ContextProvider = ({ children }) => {
 
   const initialValue = {
     /* store */
+    productCtx,
     store,
     addProduct,
     deleteProduct,

@@ -1,8 +1,6 @@
 import { useContext, useEffect, useState } from 'react'
 /* context */
 import { ProductContext } from '../context'
-/* data */
-import { product } from '../data'
 /* icons */
 import minus from '../assets/images/icon-minus.svg'
 import plus from '../assets/images/icon-plus.svg'
@@ -11,7 +9,7 @@ import IconCart from './IconCart'
 import '../styles/components/product.css'
 
 const ProductCounter = () => {
-  const { addProduct } = useContext(ProductContext)
+  const { addProduct, productCtx } = useContext(ProductContext)
   const [accumulator, setAccumulator] = useState(0)
   const [activeBtn, setActiveBtn] = useState(false)
 
@@ -21,7 +19,7 @@ const ProductCounter = () => {
 
   const handleAddProduct = () => {
     if (!activeBtn) {
-      addProduct({ accumulator, ...product })
+      addProduct({ accumulator, ...productCtx })
       setAccumulator(0)
     }
   }
@@ -30,13 +28,15 @@ const ProductCounter = () => {
     <section className='add-item'>
       <div className='counter'>
         <button
-          onClick={() =>
-            accumulator > 0 && setAccumulator(accumulator - 1)}
+          onClick={() => accumulator > 0 && setAccumulator(accumulator - 1)}
         >
           <img src={minus} alt='minus' />
         </button>
         <p className='accumulator'>{accumulator}</p>
-        <button onClick={() => setAccumulator(accumulator + 1)}>
+        <button
+          onClick={() =>
+            productCtx.units > accumulator && setAccumulator(accumulator + 1)}
+        >
           <img src={plus} alt='plus' />
         </button>
       </div>
