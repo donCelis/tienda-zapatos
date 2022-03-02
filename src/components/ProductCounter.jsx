@@ -16,8 +16,7 @@ const ProductCounter = () => {
   const [activeBtn, setActiveBtn] = useState(false)
 
   useEffect(() => {
-    if (accumulator > 0 && accumulator < 10) setActiveBtn(false)
-    if (accumulator === 0) setActiveBtn(true)
+    setActiveBtn(accumulator === 0)
   }, [accumulator])
 
   const handleAddProduct = () => {
@@ -32,9 +31,7 @@ const ProductCounter = () => {
       <div className='counter'>
         <button
           onClick={() =>
-            accumulator === 0
-              ? setAccumulator(0)
-              : setAccumulator(accumulator - 1)}
+            accumulator > 0 && setAccumulator(accumulator - 1)}
         >
           <img src={minus} alt='minus' />
         </button>
