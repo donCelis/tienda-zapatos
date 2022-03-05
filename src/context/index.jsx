@@ -7,14 +7,14 @@ import { product } from '../data'
 const ProductContext = createContext(null)
 
 export const AppProvider = ({ children }) => {
-  const [productCtx] = useState(product)
+  const [productCtx, setproductCtx] = useState(product)
   const [store, setStore] = useState([])
   const [showCart, setShowCart] = useState(false)
   const storeMenu = useRef()
 
-  const addProduct = (product) => {
+  const addProduct = (productTmp) => {
     const id = uuidv4()
-    const tempProduct = { id, ...product }
+    const tempProduct = { id, ...productTmp }
     setStore([...store, tempProduct])
   }
   const deleteProduct = (id) => {
@@ -27,8 +27,9 @@ export const AppProvider = ({ children }) => {
   }
 
   const initialValue = {
-    /* store */
     productCtx,
+    setproductCtx,
+    /* store */
     store,
     addProduct,
     deleteProduct,

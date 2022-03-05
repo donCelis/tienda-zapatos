@@ -9,7 +9,7 @@ import IconCart from './IconCart'
 import '../styles/components/product.css'
 
 const ProductCounter = () => {
-  const { addProduct, productCtx } = useProductCtx()
+  const { addProduct, productCtx, setproductCtx } = useProductCtx()
   const [accumulator, setAccumulator] = useState(0)
   const [activeBtn, setActiveBtn] = useState(false)
 
@@ -19,6 +19,7 @@ const ProductCounter = () => {
 
   const handleAddProduct = () => {
     if (!activeBtn) {
+      // setproductCtx(productCtx.units - accumulator)
       addProduct({ accumulator, ...productCtx })
       setAccumulator(0)
     }

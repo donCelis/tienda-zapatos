@@ -5,13 +5,12 @@ import ProductStore from './ProductStore'
 const StoreMenu = () => {
   const { store, storeMenu } = useProductCtx()
   const storeEmpty = store.length > 0
-  const addClassEmpty = storeEmpty ? '' : 'empty'
   return (
     <section ref={storeMenu} className='store-menu show'>
       <header>
         <h4>Cart</h4>
       </header>
-      <section className={`store-body ${addClassEmpty}`}>
+      <section className={`store-body ${storeEmpty ? '' : 'empty'}`}>
         {storeEmpty
           ? (
             <>
