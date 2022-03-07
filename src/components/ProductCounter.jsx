@@ -19,7 +19,7 @@ const ProductCounter = () => {
 
   const handleAddProduct = () => {
     if (!activeBtn) {
-      addProduct({ accumulator, ...productCtx })
+      addProduct({ ...productCtx, accumulator })
       setproductCtx((prev) => ({ ...prev, units: prev.units - accumulator }))
       setAccumulator(0)
     }
