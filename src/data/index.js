@@ -36,7 +36,7 @@ const product = {
   price: 250,
   percent: 50,
   images: allImages,
-  units: 3
+  units: 10
 }
 
 export { allImages, product }

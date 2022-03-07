@@ -19,8 +19,8 @@ const ProductCounter = () => {
 
   const handleAddProduct = () => {
     if (!activeBtn) {
-      // setproductCtx(productCtx.units - accumulator)
       addProduct({ accumulator, ...productCtx })
+      setproductCtx((prev) => ({ ...prev, units: prev.units - accumulator }))
       setAccumulator(0)
     }
   }
