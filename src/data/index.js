@@ -41,6 +41,7 @@ const product = {
 
 const products = [
   {
+    id: 1,
     company: 'SNEAKER COMPANY',
     name: 'Fall Limited Edition Sneakers 1',
     description: `These low-profile sneakers are your perfect casual wear companion.
@@ -53,6 +54,7 @@ const products = [
     category: 'men'
   },
   {
+    id: 2,
     company: 'SNEAKER COMPANY',
     name: 'Fall Limited Edition Sneakers 2',
     description: `These low-profile sneakers are your perfect casual wear companion.
@@ -65,6 +67,7 @@ const products = [
     category: 'women'
   },
   {
+    id: 3,
     company: 'SNEAKER COMPANY',
     name: 'Fall Limited Edition Sneakers 3',
     description: `These low-profile sneakers are your perfect casual wear companion.
@@ -77,6 +80,7 @@ const products = [
     category: 'men'
   },
   {
+    id: 4,
     company: 'SNEAKER COMPANY',
     name: 'Fall Limited Edition Sneakers 4',
     description: `These low-profile sneakers are your perfect casual wear companion.
@@ -89,6 +93,7 @@ const products = [
     category: 'women'
   },
   {
+    id: 5,
     company: 'SNEAKER COMPANY',
     name: 'Fall Limited Edition Sneakers 5',
     description: `These low-profile sneakers are your perfect casual wear companion.
@@ -101,6 +106,7 @@ const products = [
     category: 'men'
   },
   {
+    id: 6,
     company: 'SNEAKER COMPANY',
     name: 'Fall Limited Edition Sneakers 6',
     description: `These low-profile sneakers are your perfect casual wear companion.
@@ -113,6 +119,7 @@ const products = [
     category: 'women'
   },
   {
+    id: 7,
     company: 'SNEAKER COMPANY',
     name: 'Fall Limited Edition Sneakers 7',
     description: `These low-profile sneakers are your perfect casual wear companion.
@@ -125,6 +132,7 @@ const products = [
     category: 'men'
   },
   {
+    id: 8,
     company: 'SNEAKER COMPANY',
     name: 'Fall Limited Edition Sneakers 8',
     description: `These low-profile sneakers are your perfect casual wear companion.

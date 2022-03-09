@@ -18,7 +18,7 @@ menu {
   display: block;
   transition: border-bottom ease 0.2s;
 }
-.main-menu li a:hover {
+.main-menu li a:hover, .main-menu li a.active {
   border-bottom: 2px solid tomato;
 }
 .second-menu {

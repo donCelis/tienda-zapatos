@@ -8,6 +8,7 @@ import { useProductCtx } from '../context'
 import ProductCounter from './ProductCounter'
 /* hooks */
 import useDiscount from '../hooks/useDiscount'
+import { useParams } from 'react-router-dom'
 
 const Thumbnail = ({ urlImg, active }) => {
   return (
@@ -18,17 +19,14 @@ const Thumbnail = ({ urlImg, active }) => {
 }
 
 const Product = () => {
+  console.log(useParams())
   const { productCtx } = useProductCtx()
   const { images, company, name, price, percent, description } = productCtx
   /* set main photo and filter photo */
   const [mainPhoto, setMainPhoto] = useState(images[0].img)
   const filterPhoto = images.filter(({ img }) => img !== mainPhoto)
   /* useDiscount */
-  const {
-    valueProduct,
-    finalValue,
-    discount
-  } = useDiscount(price, percent)
+  const { valueProduct, finalValue, discount } = useDiscount(price, percent)
 
   /* Options lightbox */
   const options = {
@@ -83,9 +81,7 @@ const Product = () => {
         <article className='product-info'>
           <small>{company}</small>
           <h2>{name}</h2>
-          <p className='info-text'>
-            {description}
-          </p>
+          <p className='info-text'>{description}</p>
           <p className='price'>
             <span className='final-value'>{finalValue}</span>
             <span className='discount'>{discount}%</span>

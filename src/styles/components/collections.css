@@ -45,7 +45,7 @@
   bottom: 1rem;
   z-index: 1;
 }
-.final-value {
+.collection-product .final-value {
   opacity: 0;
   transition: opacity ease 300ms;
 }

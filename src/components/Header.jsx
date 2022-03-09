@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useProductCtx } from '../context'
 /* styles */
 import '../styles/components/header.css'
@@ -16,8 +16,8 @@ const Header = () => {
     { uri: 'Collections', path: '/' },
     { uri: 'Men', path: '/men' },
     { uri: 'Women', path: '/women' },
-    { uri: 'About', path: '/' },
-    { uri: 'Contact', path: '/' }
+    { uri: 'About', path: '/about' },
+    { uri: 'Contact', path: '/contact' }
   ]
   return (
     <header>
@@ -29,7 +29,7 @@ const Header = () => {
           <ul className='row main-menu'>
             {navLinks.map(({ uri, path }, index) => (
               <li key={index}>
-                <Link to={path}>{uri}</Link>
+                <NavLink to={path}>{uri}</NavLink>
               </li>
             ))}
           </ul>
