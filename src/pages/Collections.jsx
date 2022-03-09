@@ -1,15 +1,24 @@
+import { useState, useEffect } from 'react'
 import '../styles/components/collections.css'
 import { products } from '../data'
 import useDiscount from '../hooks/useDiscount'
 
-const Collections = () => {
+const Collections = ({ category = '', titlePage }) => {
+  const [filterCategory, setFilterCategory] = useState([])
+
+  useEffect(() => {
+    category
+      ? setFilterCategory(products.filter(item => item.category === category))
+      : setFilterCategory(products)
+  }, [category])
+
   return (
     <section className='collections'>
       <div className='container'>
-        <h2 className='section-title'>All sneakers</h2>
+        <h2 className='section-title'>{titlePage}</h2>
       </div>
       <div className='container row-grid'>
-        {products.map(({ name, images, price, percent }, index) => {
+        {filterCategory.map(({ name, images, price, percent }, index) => {
           const { valueProduct, finalValue } = useDiscount(price, percent)
           return (
             <article key={index} className='collection-product'>

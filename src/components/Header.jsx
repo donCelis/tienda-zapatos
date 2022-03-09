@@ -14,8 +14,8 @@ const Header = () => {
 
   const navLinks = [
     { uri: 'Collections', path: '/' },
-    { uri: 'Men', path: '/product' },
-    { uri: 'Women', path: '/' },
+    { uri: 'Men', path: '/men' },
+    { uri: 'Women', path: '/women' },
     { uri: 'About', path: '/' },
     { uri: 'Contact', path: '/' }
   ]
