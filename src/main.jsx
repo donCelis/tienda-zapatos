@@ -1,21 +1,12 @@
-import React, { lazy, Suspense } from 'react'
-import ReactDOM from 'react-dom'
-import Loading from './components/Loading'
-import Header from './components/Header'
+import { render } from 'react-dom'
+import { StrictMode } from 'react'
 
 import './styles/main.css'
-import { AppProvider } from './context'
+import Paths from './routes'
 
-const Product = lazy(() => import('./components/Product'))
-
-ReactDOM.render(
-  <React.StrictMode>
-    <AppProvider>
-      <Header />
-      <Suspense fallback={<Loading />}>
-        <Product />
-      </Suspense>
-    </AppProvider>
-  </React.StrictMode>,
+render(
+  <StrictMode>
+    <Paths />
+  </StrictMode>,
   document.getElementById('app')
 )

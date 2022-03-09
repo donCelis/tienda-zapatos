@@ -1,9 +1,13 @@
 import { useState } from 'react'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
-import ProductCounter from './ProductCounter'
+/* styles */
 import '../styles/components/product.css'
-import useDiscount from '../hooks/useDiscount'
+/* context */
 import { useProductCtx } from '../context'
+/* components */
+import ProductCounter from './ProductCounter'
+/* hooks */
+import useDiscount from '../hooks/useDiscount'
 
 const Thumbnail = ({ urlImg, active }) => {
   return (

@@ -1,5 +1,5 @@
 const useDiscount = (initialValue = 0, discount = 0) => {
-  const initialfinalValue = (initialValue / 100) * discount
+  const initialfinalValue = initialValue - (initialValue * discount) / 100
 
   const options = { style: 'currency', currency: 'USD' }
 
