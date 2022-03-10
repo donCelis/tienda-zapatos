@@ -5,7 +5,7 @@ import '../styles/components/product.css'
 /* context */
 import { useProductCtx } from '../context'
 /* components */
-import ProductCounter from './ProductCounter'
+import AddToCart from './AddToCart'
 /* hooks */
 import useDiscount from '../hooks/useDiscount'
 import { useParams } from 'react-router-dom'
@@ -87,7 +87,7 @@ const Product = () => {
             <span className='discount'>{discount}%</span>
           </p>
           <p className='initial-value'>{valueProduct}</p>
-          <ProductCounter />
+          <AddToCart />
         </article>
       </div>
     </section>

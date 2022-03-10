@@ -8,7 +8,7 @@ import IconCart from './IconCart'
 /* styles */
 import '../styles/components/product.css'
 
-const ProductCounter = () => {
+const AddToCart = () => {
   const { addProduct, productCtx, setproductCtx } = useProductCtx()
   const [accumulator, setAccumulator] = useState(0)
   const [activeBtn, setActiveBtn] = useState(false)
@@ -53,4 +53,4 @@ const ProductCounter = () => {
     </section>
   )
 }
-export default ProductCounter
+export default AddToCart
