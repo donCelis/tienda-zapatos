@@ -8,7 +8,6 @@ import { useProductCtx } from '../context'
 import AddToCart from './AddToCart'
 /* hooks */
 import useDiscount from '../hooks/useDiscount'
-import { useParams } from 'react-router-dom'
 
 const Thumbnail = ({ urlImg, active }) => {
   return (
@@ -19,7 +18,6 @@ const Thumbnail = ({ urlImg, active }) => {
 }
 
 const Product = () => {
-  console.log(useParams())
   const { productCtx } = useProductCtx()
   const { images, company, name, price, percent, description } = productCtx
   /* set main photo and filter photo */

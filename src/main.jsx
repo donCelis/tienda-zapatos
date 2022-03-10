@@ -2,11 +2,14 @@ import { render } from 'react-dom'
 import { StrictMode } from 'react'
 
 import './styles/main.css'
-import Paths from './routes'
+import App from './routes'
+import { BrowserRouter } from 'react-router-dom'
 
 render(
   <StrictMode>
-    <Paths />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>,
   document.getElementById('app')
 )

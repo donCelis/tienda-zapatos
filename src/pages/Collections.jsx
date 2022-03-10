@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import '../styles/components/collections.css'
 import { products } from '../data'
 import GridProducts from '../components/GridProducts'
+import { Outlet } from 'react-router-dom'
 
 const Collections = ({ category = '', titlePage }) => {
   const [filterCategory, setFilterCategory] = useState([])
@@ -22,6 +23,7 @@ const Collections = ({ category = '', titlePage }) => {
           <GridProducts key={index} {...item} />
         )}
       </div>
+      <Outlet />
     </section>
   )
 }
