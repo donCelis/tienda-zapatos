@@ -3,8 +3,12 @@ import '../styles/components/product.css'
 import minus from '../assets/images/icon-minus.svg'
 import plus from '../assets/images/icon-plus.svg'
 import IconCart from './IconCart'
+import { useGlobalContext } from '../context'
+import { product } from '../data'
 
 const ProductCounter = () => {
+  const { store, setStore } = useGlobalContext()
+  const [productTemp, setProductTemp] = useState(product)
   const [number, setNumber] = useState(0)
   const [activeBtn, setActiveBtn] = useState(false)
 
@@ -13,7 +17,11 @@ const ProductCounter = () => {
   }, [number])
 
   const handleAddProduct = () => {
-    if (!activeBtn) console.log('ok')
+    if (!activeBtn) {
+      setStore([...store, product])
+      setProductTemp({ ...productTemp, units: productTemp.units - number })
+      setNumber(0)
+    }
   }
 
   return (
@@ -23,7 +31,7 @@ const ProductCounter = () => {
           <img src={minus} alt='minus' />
         </button>
         <p className='number'>{number}</p>
-        <button onClick={() => setNumber(number + 1)}>
+        <button onClick={() => productTemp.units > number && setNumber(number + 1)}>
           <img src={plus} alt='plus' />
         </button>
       </div>

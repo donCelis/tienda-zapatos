@@ -1,13 +1,13 @@
-import { createContext, useState } from 'react'
+import { createContext, useState, useContext } from 'react'
 
-export const ProductContext = createContext(null)
+const ProductContext = createContext(null)
 
 export const ContextProvider = ({ children }) => {
-  const [number, setNumber] = useState(0)
+  const [store, setStore] = useState([])
 
   const initialValue = {
-    number,
-    setNumber
+    store,
+    setStore
   }
 
   return (
@@ -15,4 +15,7 @@ export const ContextProvider = ({ children }) => {
       {children}
     </ProductContext.Provider>
   )
+}
+export const useGlobalContext = () => {
+  return useContext(ProductContext)
 }
