@@ -5,6 +5,7 @@
   margin-bottom: 1.5rem;
   position: relative;
   display: inline-block;
+  text-transform: capitalize;
 }
 .section-title::after{
   content: "";

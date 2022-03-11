@@ -7,6 +7,7 @@ import { product, products } from '../data'
 const ProductContext = createContext(null)
 
 export const AppProvider = ({ children }) => {
+  const [allProducts] = useState(products)
   const [filterProduct, setFilterProduct] = useState(products)
   const [productCtx, setproductCtx] = useState(product)
   const [store, setStore] = useState([])
@@ -44,6 +45,7 @@ export const AppProvider = ({ children }) => {
     /* store menu ref */
     storeMenu,
     /* data */
+    allProducts,
     filterProduct,
     useFilteredProduct
   }

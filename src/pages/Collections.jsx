@@ -1,26 +1,35 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import '../styles/components/collections.css'
-import { products } from '../data'
 import GridProducts from '../components/GridProducts'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import { useProductCtx } from '../context'
 
-const Collections = ({ category = '', titlePage }) => {
+const Collections = ({ titlePage = '' }) => {
+  const { category } = useParams()
+  const { allProducts } = useProductCtx()
   const [filterCategory, setFilterCategory] = useState([])
 
   useEffect(() => {
     category
-      ? setFilterCategory(products.filter((item) => item.category === category))
-      : setFilterCategory(products)
+      ? setFilterCategory(
+          allProducts.filter((item) => item.category === category)
+        )
+      : setFilterCategory(allProducts)
   }, [category])
 
   return (
     <section className='collections'>
-      <div className='container'>
-        <h2 className='section-title'>{titlePage}</h2>
-      </div>
-      <div className='container row-grid'>
+      <h2 className='section-title'>{category || titlePage}</h2>
+      <div className='row-grid'>
         {filterCategory.map((item, index) => (
-          <Link key={index} to={category ? `/${category}/product/${item.id}` : '/product'}>
+          <Link
+            key={index}
+            to={
+              category
+                ? `/collections/${category}/${item.id}`
+                : `/product/${item.id}`
+            }
+          >
             <GridProducts {...item} />
           </Link>
         ))}

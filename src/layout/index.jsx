@@ -5,7 +5,9 @@ const Layout = ({ children }) => {
   return (
     <AppProvider>
       <Header />
-      {children}
+      <main className='container'>
+        {children}
+      </main>
     </AppProvider>
   )
 }

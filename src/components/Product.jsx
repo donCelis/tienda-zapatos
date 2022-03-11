@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
 /* styles */
 import '../styles/components/product.css'
@@ -6,30 +7,21 @@ import '../styles/components/product.css'
 import { useProductCtx } from '../context'
 /* components */
 import AddToCart from './AddToCart'
+import Thumbnail from './Thumbnail'
 /* hooks */
 import useDiscount from '../hooks/useDiscount'
-import { useParams } from 'react-router-dom'
-/* products */
-
-const Thumbnail = ({ urlImg, active }) => {
-  return (
-    <figure className={active}>
-      <img className='img-fluid' src={urlImg} alt='sneaker thumbnail' />
-    </figure>
-  )
-}
 
 const Product = () => {
   const { filterProduct, useFilteredProduct } = useProductCtx()
   const { id } = useParams()
 
   useEffect(() => {
-    useFilteredProduct(Number(id))
-  }, [])
+    const getData = () => useFilteredProduct(Number(id))
+    getData()
+  }, [id])
 
-  console.log(filterProduct)
-
-  const { images, company, name, price, percent, description } = filterProduct[0]
+  const { name, price, percent, description, images, company } =
+    filterProduct[0]
   /* set main photo and filter photo */
   const [mainPhoto, setMainPhoto] = useState(images[0].img)
   const filterPhoto = images.filter(({ img }) => img !== mainPhoto)
@@ -61,7 +53,7 @@ const Product = () => {
 
   return (
     <section className='product'>
-      <div className='container row-grid'>
+      <div className='row-grid'>
         <aside className='product-photos'>
           <SimpleReactLightbox>
             <SRLWrapper options={options}>
