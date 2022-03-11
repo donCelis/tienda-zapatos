@@ -1,7 +1,7 @@
 import { useRoutes } from 'react-router-dom'
 import Layout from '../layout'
 import Collections from '../pages/Collections'
-// import Product from '../components/Product'
+import Product from '../components/Product'
 
 const Paths = () => [
   {
@@ -11,6 +11,14 @@ const Paths = () => [
   {
     path: ':category',
     element: <Collections />
+  },
+  {
+    path: ':category/:id',
+    element: <Product />
+  },
+  {
+    path: 'product/:id',
+    element: <Product />
   },
   {
     path: '*',

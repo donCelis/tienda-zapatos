@@ -26,7 +26,7 @@ const Collections = ({ titlePage = '' }) => {
             key={index}
             to={
               category
-                ? `/collections/${category}/${item.id}`
+                ? `/${category}/${item.id}`
                 : `/product/${item.id}`
             }
           >
