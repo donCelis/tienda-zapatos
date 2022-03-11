@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
 /* styles */
 import '../styles/components/product.css'
@@ -8,6 +8,8 @@ import { useProductCtx } from '../context'
 import AddToCart from './AddToCart'
 /* hooks */
 import useDiscount from '../hooks/useDiscount'
+import { useParams } from 'react-router-dom'
+/* products */
 
 const Thumbnail = ({ urlImg, active }) => {
   return (
@@ -18,8 +20,16 @@ const Thumbnail = ({ urlImg, active }) => {
 }
 
 const Product = () => {
-  const { productCtx } = useProductCtx()
-  const { images, company, name, price, percent, description } = productCtx
+  const { filterProduct, useFilteredProduct } = useProductCtx()
+  const { id } = useParams()
+
+  useEffect(() => {
+    useFilteredProduct(Number(id))
+  }, [])
+
+  console.log(filterProduct)
+
+  const { images, company, name, price, percent, description } = filterProduct[0]
   /* set main photo and filter photo */
   const [mainPhoto, setMainPhoto] = useState(images[0].img)
   const filterPhoto = images.filter(({ img }) => img !== mainPhoto)

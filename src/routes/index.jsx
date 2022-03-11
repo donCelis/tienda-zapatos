@@ -10,26 +10,18 @@ const Paths = () => [
   },
   {
     path: '/men',
-    element: <Collections category='men' titlePage='Men' />,
-    children: [
-      {
-        path: 'product',
-        element: <Product />
-      }
-    ]
+    element: <Collections category='men' titlePage='Men' />
+  },
+  {
+    path: '/men/product/:id',
+    element: <Product />
   },
   {
     path: '/women',
-    element: <Collections category='women' titlePage='Women' />,
-    children: [
-      {
-        path: 'product',
-        element: <Product />
-      }
-    ]
+    element: <Collections category='women' titlePage='Women' />
   },
   {
-    path: '/product',
+    path: '/women/product/:id',
     element: <Product />
   },
   {

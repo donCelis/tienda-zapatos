@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import '../styles/components/collections.css'
 import { products } from '../data'
 import GridProducts from '../components/GridProducts'
-import { Outlet } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Collections = ({ category = '', titlePage }) => {
   const [filterCategory, setFilterCategory] = useState([])
@@ -19,11 +19,12 @@ const Collections = ({ category = '', titlePage }) => {
         <h2 className='section-title'>{titlePage}</h2>
       </div>
       <div className='container row-grid'>
-        {filterCategory.map((item, index) =>
-          <GridProducts key={index} {...item} />
-        )}
+        {filterCategory.map((item, index) => (
+          <Link key={index} to={category ? `/${category}/product/${item.id}` : '/product'}>
+            <GridProducts {...item} />
+          </Link>
+        ))}
       </div>
-      <Outlet />
     </section>
   )
 }
