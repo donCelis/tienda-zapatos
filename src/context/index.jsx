@@ -16,9 +16,9 @@ export const AppProvider = ({ children }) => {
 
   const addProduct = (productTmp) => {
     const id = uuidv4()
-    const tempProduct = { id, ...productTmp }
-    setStore([...store, tempProduct])
+    setStore([...store, { id, ...productTmp }])
   }
+
   const deleteProduct = (id) => {
     setStore(store.filter((item) => item.id !== id))
   }
