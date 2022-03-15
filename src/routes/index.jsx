@@ -6,7 +6,7 @@ import Product from '../components/Product'
 const Paths = () => [
   {
     path: '/',
-    element: <Collections Collections titlePage='All sneakers' />
+    element: <Collections titlePage='All sneakers' />
   },
   {
     path: ':category',

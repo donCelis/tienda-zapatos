@@ -2,29 +2,38 @@ import { createContext, useRef, useState, useContext } from 'react'
 
 import { v4 as uuidv4 } from 'uuid'
 
-import { product, products } from '../data'
+import { products } from '../data'
 
-const ProductContext = createContext(null)
+const AppContext = createContext({})
 
 export const AppProvider = ({ children }) => {
+  /* data */
   const [allProducts] = useState(products)
-  const [filterProduct, setFilterProduct] = useState(products)
-  const [productCtx, setproductCtx] = useState(product)
+  const [productCtx, setproductCtx] = useState({})
+  /* filter product in router */
+  const [filterProduct, setFilterProduct] = useState(allProducts)
+  /* store */
   const [store, setStore] = useState([])
+  /* view o hide cart */
   const [showCart, setShowCart] = useState(false)
   const storeMenu = useRef()
 
+  /* modify data router */
+  const useFilteredProduct = (id) => {
+    const tmpItemFilter = allProducts.filter((item) => item.id === id)
+    setFilterProduct(tmpItemFilter)
+  }
+
+  /* modify store */
   const addProduct = (productTmp) => {
     const id = uuidv4()
-    setStore([...store, { id, ...productTmp }])
+    const tmpItemsStore = [...store, { id, ...productTmp }]
+    setStore(tmpItemsStore)
   }
 
   const deleteProduct = (id) => {
-    setStore(store.filter((item) => item.id !== id))
-  }
-
-  const useFilteredProduct = (id) => {
-    setFilterProduct(filterProduct.filter((item) => item.id === id))
+    const tmpItemStore = store.filter((item) => item.id !== id)
+    setStore(tmpItemStore)
   }
 
   const handleStoreMenu = () => {
@@ -47,16 +56,17 @@ export const AppProvider = ({ children }) => {
     /* data */
     allProducts,
     filterProduct,
-    useFilteredProduct
+    useFilteredProduct,
+    setFilterProduct
   }
 
   return (
-    <ProductContext.Provider value={initialValue}>
+    <AppContext.Provider value={initialValue}>
       {children}
-    </ProductContext.Provider>
+    </AppContext.Provider>
   )
 }
 
 export const useProductCtx = () => {
-  return useContext(ProductContext)
+  return useContext(AppContext)
 }

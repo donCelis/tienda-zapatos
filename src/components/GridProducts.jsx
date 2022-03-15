@@ -2,6 +2,8 @@ import useDiscount from '../hooks/useDiscount'
 
 const GridProducts = ({ name, images, price, percent }) => {
   const { valueProduct, finalValue } = useDiscount(price, percent)
+  const max = images.length
+  const randomImage = Math.floor(Math.random() * max)
   return (
     <article className='collection-product'>
       <header className='product-header'>
@@ -9,7 +11,7 @@ const GridProducts = ({ name, images, price, percent }) => {
         <figure>
           <img
             className='img-fluid product-photo'
-            src={images[0].img}
+            src={images[randomImage].img}
             alt='Product photo'
           />
         </figure>

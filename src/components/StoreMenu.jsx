@@ -14,8 +14,8 @@ const StoreMenu = () => {
         {storeEmpty
           ? (
             <>
-              {store.map((item) => (
-                <ProductStore key={item.id} {...item} />
+              {store.map((item, index) => (
+                <ProductStore key={`${item.id}-${index}`} {...item} />
               ))}
               <button className='add-cart check'>Checkout</button>
             </>

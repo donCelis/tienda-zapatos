@@ -36,7 +36,7 @@ const Header = () => {
         </menu>
         <nav className='row second-menu'>
           <button className='btn btn-cart' onClick={() => handleStoreMenu()}>
-            {store.length > 0 && (
+            {store.length !== 0 && (
               <p className='counter-store'>{store.length}</p>
             )}
             <img src={iconCart} alt='Carrito de compras' />

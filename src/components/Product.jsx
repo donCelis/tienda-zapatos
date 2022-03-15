@@ -12,12 +12,12 @@ import Thumbnail from './Thumbnail'
 import useDiscount from '../hooks/useDiscount'
 
 const Product = () => {
-  const { filterProduct, useFilteredProduct } = useProductCtx()
   const { id } = useParams()
+  const { filterProduct, useFilteredProduct } = useProductCtx()
+  const convertId = Number(id)
 
   useEffect(() => {
-    const getData = () => useFilteredProduct(Number(id))
-    getData()
+    useFilteredProduct(convertId)
   }, [id])
 
   const { name, price, percent, description, images, company } =
