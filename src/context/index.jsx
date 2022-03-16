@@ -9,19 +9,18 @@ const AppContext = createContext({})
 export const AppProvider = ({ children }) => {
   /* data */
   const [allProducts] = useState(products)
-  const [productCtx, setproductCtx] = useState({})
   /* filter product in router */
-  const [filterProduct, setFilterProduct] = useState(allProducts)
+  const [filterProduct, setFilterProduct] = useState({})
   /* store */
   const [store, setStore] = useState([])
   /* view o hide cart */
-  const [showCart, setShowCart] = useState(false)
+  // const [showCart, setShowCart] = useState(false)
   const storeMenu = useRef()
 
   /* modify data router */
   const useFilteredProduct = (id) => {
     const tmpItemFilter = allProducts.filter((item) => item.id === id)
-    setFilterProduct(tmpItemFilter)
+    setFilterProduct(tmpItemFilter[0])
   }
 
   /* modify store */
@@ -37,19 +36,17 @@ export const AppProvider = ({ children }) => {
   }
 
   const handleStoreMenu = () => {
-    setShowCart(!showCart)
-    // storeMenu.current.classList.toggle('show')
+    // setShowCart(!showCart)
+    storeMenu.current.classList.toggle('show')
   }
 
   const initialValue = {
-    productCtx,
-    setproductCtx,
     /* store */
     store,
     addProduct,
     deleteProduct,
     /* hide store menu */
-    showCart,
+    /* showCart, */
     handleStoreMenu,
     /* store menu ref */
     storeMenu,

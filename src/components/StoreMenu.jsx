@@ -6,7 +6,7 @@ const StoreMenu = () => {
   const { store, storeMenu } = useProductCtx()
   const storeEmpty = store.length > 0
   return (
-    <section ref={storeMenu} className='store-menu show'>
+    <section ref={storeMenu} className='store-menu'>
       <header>
         <h4>Cart</h4>
       </header>

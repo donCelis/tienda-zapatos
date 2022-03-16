@@ -10,7 +10,7 @@ import avatar from '../assets/images/image-avatar.png'
 import StoreMenu from './StoreMenu'
 
 const Header = () => {
-  const { showCart, handleStoreMenu, store } = useProductCtx()
+  const { handleStoreMenu, store } = useProductCtx()
 
   const navLinks = [
     { uri: 'Collections', path: '/' },
@@ -41,10 +41,10 @@ const Header = () => {
             )}
             <img src={iconCart} alt='Carrito de compras' />
           </button>
+          <StoreMenu />
           <button className='btn btn-profile'>
             <img className='img-fluid' src={avatar} alt='Foto de perfil' />
           </button>
-          {showCart && <StoreMenu />}
         </nav>
       </div>
     </header>

@@ -15,6 +15,12 @@
   gap: 1.5rem;
   padding: 2rem 0;
 }
+.main-photo{
+  cursor: zoom-in;
+}
+.thumbnails li{
+  cursor: pointer;
+}
 .main-photo,
 .thumbnails li figure {
   border-radius: 0.8rem;

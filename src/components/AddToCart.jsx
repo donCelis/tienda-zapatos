@@ -9,9 +9,11 @@ import IconCart from './IconCart'
 import '../styles/components/product.css'
 
 const AddToCart = () => {
-  const { addProduct, filterProduct } = useProductCtx()
+  const { addProduct, filterProduct, setFilterProduct } = useProductCtx()
   const [accumulator, setAccumulator] = useState(0)
   const [activeBtn, setActiveBtn] = useState(false)
+
+  const [productTmp, setProductTmp] = useState(filterProduct)
 
   useEffect(() => {
     setActiveBtn(accumulator === 0)
@@ -19,8 +21,9 @@ const AddToCart = () => {
 
   const handleAddProduct = () => {
     if (!activeBtn) {
-      addProduct({ ...filterProduct[0], accumulator })
-      // setproductCtx((prev) => ({ ...prev, units: prev.units - accumulator }))
+      addProduct({ ...filterProduct, accumulator })
+      // setFilterProduct((prev) => ({ ...prev, units: prev.units - accumulator }))
+      setProductTmp((prev) => ({ ...prev, units: prev.units - accumulator }))
       setAccumulator(0)
     }
   }
@@ -36,7 +39,7 @@ const AddToCart = () => {
         <p className='accumulator'>{accumulator}</p>
         <button
           onClick={() =>
-            filterProduct[0].units > accumulator && setAccumulator(accumulator + 1)}
+            productTmp.units > accumulator && setAccumulator(accumulator + 1)}
         >
           <img src={plus} alt='plus' />
         </button>

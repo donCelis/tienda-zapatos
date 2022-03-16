@@ -2,6 +2,7 @@ import { useRoutes } from 'react-router-dom'
 import Layout from '../layout'
 import Collections from '../pages/Collections'
 import Product from '../components/Product'
+import { Modal } from '../components/Modal'
 
 const Paths = () => [
   {
@@ -19,6 +20,10 @@ const Paths = () => [
   {
     path: 'product/:id',
     element: <Product />
+  },
+  {
+    path: 'portal',
+    element: <Modal />
   },
   {
     path: '*',
